@@ -2,9 +2,29 @@
   #FONTS
 \*------------------------------------*/
 
+@font-face {
+    font-family: "ClearSans";
+    font-weight: 200;
+    src: url("../fonts/ClearSans-Light-webfont.woff") format("woff");
+}
+
+@font-face {
+    font-family: "ClearSans";
+    font-weight: 400;
+    src: url("../fonts/ClearSans-Regular-webfont.woff") format("woff");
+}
+
+@font-face {
+    font-family: "ClearSans";
+    font-weight: 600;
+    src: url("../fonts/ClearSans-Medium-webfont.woff") format("woff");
+}
+
+
 /*------------------------------------*\
   #GENERIC
 \*------------------------------------*/
+
 
 /*
     Generic: Page
@@ -14,11 +34,16 @@
 
 html {
     font-size: 16px;
-    line-height: 24px;
-    font-family: Helvetica, arial, sans-serif;
+    line-height: 32px;
+    font-weight: 200;
+    font-family: "ClearSans", Helvetica, arial, sans-serif;
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    color: white;
+    background: #0A257D;
+    background: linear-gradient(-45deg, #0A257D, #061649);
+    background-attachment: fixed;
 }
 
 *,
@@ -26,6 +51,7 @@ html {
 *:after {
     box-sizing: inherit;
 }
+
 
 /*
  * Remove text-shadow in selection highlight:
@@ -46,9 +72,11 @@ html {
     text-shadow: none;
 }
 
+
 /*------------------------------------*\
   #Elements
 \*------------------------------------*/
+
 
 /*
     Elements: Images
@@ -60,6 +88,7 @@ img {
     max-width: 100%;
     vertical-align: top;
 }
+
 
 /*
     Elements: typography
@@ -157,9 +186,11 @@ a:focus {
     color: #8EC7FF;
 }
 
+
 /*------------------------------------*\
   #OBJECTS
 \*------------------------------------*/
+
 
 /*
     Objects: Row
@@ -173,6 +204,7 @@ a:focus {
     display: flow-root;
 }
 
+
 /* size modifiers */
 
 .o-row--lg {
@@ -184,17 +216,16 @@ a:focus {
         padding-left: 48px;
         padding-right: 48px;
     }
-
     .o-row--md {
         padding-top: 48px;
         padding-bottom: 24px;
     }
-
     .o-row--lg {
         padding-top: 72px;
         padding-bottom: 48px;
     }
 }
+
 
 /*
     Objects: Container
@@ -205,8 +236,12 @@ a:focus {
 .o-container {
     margin-left: auto;
     margin-right: auto;
-    max-width: 56.4em; /* 56.4 * 20px = 1128px */
+    max-width: 56.4em;
+    /* 56.4 * 20px = 1128px */
+    /*71 * 18 = 1278px */
+    max-width: 71em;
 }
+
 
 /*
     Objects: section
@@ -215,25 +250,27 @@ a:focus {
 */
 
 .o-section {
-    display: flow-root; /* New solution! Fixes margin collapsing */
+    display: flow-root;
+    /* New solution! Fixes margin collapsing */
 }
 
-.o-section + .o-section {
+.o-section+.o-section {
     margin-top: 24px;
 }
 
 @media (min-width: 768px) {
-    .o-section--lg + .o-section--lg,
-    .o-section--xl + .o-section--xl {
+    .o-section--lg+.o-section--lg,
+    .o-section--xl+.o-section--xl {
         margin-top: 48px;
     }
 }
 
 @media (min-width: 1200px) {
-    .o-section--xl + .o-section--xl {
+    .o-section--xl+.o-section--xl {
         margin-top: 72px;
     }
 }
+
 
 /*
     Objects: Layout
@@ -248,9 +285,10 @@ a:focus {
     flex-wrap: wrap;
 }
 
-    .o-layout__item {
-        flex-basis: 100%;
-    }
+.o-layout__item {
+    flex-basis: 100%;
+}
+
 
 /* gutter modifiers, these affect o-layout__item too */
 
@@ -258,7 +296,7 @@ a:focus {
     margin: 0 -12px;
 }
 
-.o-layout--gutter > .o-layout__item {
+.o-layout--gutter>.o-layout__item {
     padding: 0 12px;
 }
 
@@ -266,7 +304,7 @@ a:focus {
     margin: 0 -6px;
 }
 
-.o-layout--gutter-sm > .o-layout__item {
+.o-layout--gutter-sm>.o-layout__item {
     padding: 0 6px;
 }
 
@@ -274,15 +312,17 @@ a:focus {
     margin: 0 -24px;
 }
 
-.o-layout--gutter-lg > .o-layout__item {
+.o-layout--gutter-lg>.o-layout__item {
     padding: 0 24px;
 }
+
 
 /* reverse horizontal row modifier */
 
 .o-layout--row-reverse {
     flex-direction: row-reverse;
 }
+
 
 /* Horizontal alignment modifiers*/
 
@@ -310,6 +350,7 @@ a:focus {
     justify-content: space-between;
 }
 
+
 /* Vertical alignment modifiers */
 
 .o-layout--align-start {
@@ -327,6 +368,7 @@ a:focus {
 .o-layout--align-baseline {
     align-items: baseline;
 }
+
 
 /* Vertical alignment modifiers that only work if there is one than one flex item */
 
@@ -350,6 +392,7 @@ a:focus {
     align-content: space-between;
 }
 
+
 /*
     Objects: List
     ---
@@ -361,13 +404,87 @@ a:focus {
     padding: 0;
 }
 
+
 /*------------------------------------*\
   #COMPONENTS
 \*------------------------------------*/
 
+
+/*Dit component is het logo van herdius bovenaan
+Website main logo*/
+
+.c-header {
+    display: block;
+}
+
+.c-logo {
+    height: 32px;
+}
+
+.c-logo__icon {
+    height: 100%;
+}
+
+.c-nav__list {
+    list-style: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+}
+
+.c-nav__link {
+    color: white !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 1px;
+    padding-right: 1em;
+}
+
+.c-nav__link:hover {
+    color: #DBEDFF !important;
+    text-shadow: 0px 0px 8px white;
+}
+
+.o-row--left {
+    display: flex;
+    justify-content: space-between;
+}
+
+.o-row--right {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+.o-row--right figure img {
+    float: right;
+}
+
+.o-row article {
+    max-width: 32em;
+    flex-grow: 2;
+}
+
+.o-row figure {
+    flex-grow: 3;
+}
+
+@media (min-width:1200px) {
+    .c-header {
+        display: flex;
+        justify-content: space-between;
+    }
+    .c-nav__list {
+        flex-direction: row;
+    }
+}
+
+
 /*------------------------------------*\
   #UTILITIES
 \*------------------------------------*/
+
 
 /*
     Utilities: color
@@ -375,8 +492,8 @@ a:focus {
     Utility classes to put specific colors onto elements
 */
 
-.u-color-secondary-base {
-}
+.u-color-secondary-base {}
+
 
 /*
     Utilities: spacing
@@ -412,6 +529,7 @@ a:focus {
     margin-bottom: 48px !important;
 }
 
+
 /*
     Utilities: max-width
     ---
@@ -441,6 +559,7 @@ a:focus {
 .u-max-width-none {
     max-width: none !important;
 }
+
 
 /*
     Utility: Flex
@@ -645,9 +764,11 @@ a:focus {
     }
 }
 
+
 /*------------------------------------*\
   #MEDIA
 \*------------------------------------*/
+
 
 /*
     Media Queries
@@ -657,25 +778,31 @@ a:focus {
     USE THEM INLINE!
 */
 
+
 /* Extra small devices (portrait phones, less than 576px)
    No media query since this is the default in mobile first design
 */
+
 
 /* Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {}
 */
 
+
 /* Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {}
 */
+
 
 /* Large devices (landscape tablets, desktops, 992px and up)
 @media (min-width: 992px) {}
 */
 
+
 /* Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {}
 */
+
 
 /*
     Print styles.
